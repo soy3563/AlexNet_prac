@@ -4,7 +4,7 @@ CC = gcc
 CFLAGS = -Wall -O2
 TARGET = alexnet.exe
 
-SRCDIR = SW
+SRCDIR = 00_SW
 OBJDIR = obj
 
 SOURCES = $(wildcard $(SRCDIR)/*.c)
@@ -18,4 +18,5 @@ $(OBJDIR)/%.o: $(SRCDIR)/%.c
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	rm -rf $(OBJDIR) *.exe
+	@if exist $(OBJDIR) rmdir /S /Q $(OBJDIR)
+	@del /Q /F *.exe
